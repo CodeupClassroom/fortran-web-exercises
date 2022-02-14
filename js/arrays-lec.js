@@ -6,7 +6,7 @@ for (let i = numbers.length - 1; i >= 0 ; i--) {
         console.log(numbers[i]);
 }
 
-let instructors = ['Casey', 'Cocrob', 'Cy', 'Cay', 'Cavid'];
+let instructors = ['Casey', 'Docrob', 'Ry', 'Jay', 'David'];
 
 instructors.sort();
 
