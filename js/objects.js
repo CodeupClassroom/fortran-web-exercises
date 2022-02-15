@@ -168,12 +168,12 @@
      */
 
     function createBook(title, authorName) {
-        let authorNameSplit = authorName.split(' ');
+        let authorNameArr = authorName.split(' ');
         return {
             title: title,
             author: {
-                firstName: authorNameSplit[0],
-                lastName: authorNameSplit[1]
+                firstName: authorNameArr[0],
+                    lastName: authorNameArr[1]
             }
         }
     }
@@ -186,9 +186,11 @@
 
 
     function showBookInfo(book) {
-        console.log('Title: ' + book.title);
-        console.log('Author: ' + book.author.firstName + " " + book.author.lastName);
-        console.log('---')
+        let output = '';
+        output += 'Title: ' + book.title + '\n';
+        output += 'Author: ' + book.author.firstName + " " + book.author.lastName + '\n'
+        output += '---'
+        console.log(output);
     }
 
     printAllBooks(books);
