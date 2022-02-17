@@ -5,5 +5,5 @@
 
 
 // Write the code necessary to output the first 50 prime numbers
-// Recommend starting your loop at 1 and ending your loop once you've calcualted 50 primes.
+// Recommend starting your loop at 1 and ending your loop once you've calculated 50 primes.
 // https://en.wikipedia.org/wiki/Prime_number
