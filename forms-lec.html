@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>ONE OF US ONE OF US...</title>
+    </head>
+    <body>
+
+        <!-- HTTP Methods
+        GET -> Use the data in the form to get me something back
+        POST -> I need to make NEW data!
+        PUT -> Update some existing data
+        DELETE -> Delete existing data
+        -->
+        <!--<form method="GET" action="https://request-inspector.glitch.me/">
+
+            <div>
+                <label for="username-input">Username</label>
+                <input id="username-input" type="text" name="username" placeholder="Please enter your username">
+            </div>
+
+            <div>
+                <label for="email-input">Email</label>
+                <input id="email-input" type="email" name="email" placeholder="Please enter your email">
+            </div>
+
+            <div>
+                <label for="password-input">Password</label>
+                <input id="password-input" type="password" name="notPassword" placeholder="Please enter your password">
+            </div>
+
+            <button type="submit">Submit</button>
+
+        </form>-->
+
+
+        <form method="POST" action="https://request-inspector.glitch.me">
+
+            <div>
+                <input name="email" type="email">
+            </div>
+            <br>
+            <div>
+                <input name="password" type="password">
+            </div>
+            <br>
+            <div>
+                <textarea name="bio" id="" cols="30" rows="10"></textarea>
+            </div>
+            <br>
+            <div>
+                <label for="billboard">
+                    Billboard
+                    <input name="how_hear" id="billboard" type="radio" value="billboard">
+                </label>
+                <label for="radio-advert">
+                    Radio
+                    <input name="how_hear" id="radio-advert" type="radio" value="radio ad">
+                </label>
+                <label for="innernette">
+                    Innernette
+                    <input name="how_hear" id="innernette" type="radio" value="innernette">
+                </label>
+                <label for="other">
+                    Other
+                    <input name="how_hear" id="other" type="radio" value="other">
+                </label>
+            </div>
+            <br>
+
+            <select name="browser" id="browser">
+                <option value="---">Which browser are you using?</option>
+                <option value="Opera">Opera</option>
+                <option value="Chrome">Chrome</option>
+                <option value="Firefox">Firefox</option>
+                <option value="DuckDuckGo">DuckDuckGo</option>
+            </select>
+            
+            <button type="submit">Register!</button>
+        </form>
+
+
+    </body>
+</html>

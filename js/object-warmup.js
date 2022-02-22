@@ -23,13 +23,11 @@ function ContactInfo(phoneNumber, streetAddress, city, state, postalCode, emailA
 
 // Defines a person object
 function Person(occupation, dob, contactInfo) {
-
     // assign a property the value of a function *definition*
     // this helps get the names of a person, but is not executed until you invoke getNames
     this.getNames = getNames;
     // actually *invoke* this.getNames() so the names are given when the Person object is created
     this.names = this.getNames();
-
     this.occupation = occupation;
     this.dob = dob;
     this.contactInfo = contactInfo;
@@ -50,17 +48,20 @@ function getNames() {
     return namesArr;
 }
 
+// Make a new ContactInfo object
+let contact = new ContactInfo(
+    '123.456.7890',
+    '123 Anywhere Ln',
+    'Beverly Hills',
+    'CA',
+    '90210',
+    'nope@no-no-no.no');
+
 // Make new Person object
 let person2 = new Person(
     "Cat Herder / Firefighter",
     "11.30.1989",
-    new ContactInfo(
-        '123.456.7890',
-        '123 Anywhere Ln',
-        'Beverly Hills',
-        'CA',
-        '90210',
-        'nope@no-no-no.no')
+    contact
 );
 
 // Log the object so we can see its values
