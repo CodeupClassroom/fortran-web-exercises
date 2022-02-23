@@ -1,0 +1,95 @@
+/*MOBILE FIRST APPROACH*/
+
+body {
+    background-color: cadetblue;
+}
+
+h2 {
+    text-align: center;
+}
+
+.hide-on-small {
+    display: none;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#navbar {
+    margin-bottom: 1em;
+}
+
+#login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-form label {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+#login-form input {
+    width: 95%;
+    line-height: 2em;
+}
+
+ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding-left: 0;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width:768px) {
+    body {
+        background-color: blueviolet;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .hide-on-small {
+        display: block;
+    }
+
+    ul {
+        display: flex;
+        justify-content: space-around;
+        list-style: none;
+        padding-left: 0;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+    img {
+        margin: 1em auto;
+    }
+
+    #navbar ul>li {
+        background-color: whitesmoke;
+        padding: 6px;
+        width: 20%;
+        text-align: center;
+    }
+
+    #login-form {
+        width: 90%;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width:992px) {
+    body {
+        background-color: yellow;
+    }
+}
+
+
