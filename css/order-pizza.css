@@ -50,8 +50,8 @@ input {
 }
 
 footer {
-    display: flex;
-    justify-content: flex-end;
+    /*display: flex;*/
+    /*justify-content: flex-end;*/
     background-color: rgb(247, 247, 247);
     padding: 10px;
 }
