@@ -5,8 +5,8 @@ let handler = function (event) {
     alert("You clicked something!");
 }
 
-// FUNCTION EXPRESSION ONLY ACCESIBLE BELOW
-// document.addEventListener("click", handler);
+// FUNCTION EXPRESSION ONLY ACCESSIBLE BELOW
+document.addEventListener("click", handler);
 
 
 // THREE STEPS OF EVENT LISTENERS
