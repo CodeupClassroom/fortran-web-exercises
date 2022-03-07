@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div>
+  <ul id="pets">
+
+  </ul>
+</div>
+
+<script>
+
+    let pets = ["dog", "cat", "bird", "rat"];
+    let petList = document.getElementById("pets");
+
+    function addToUl(arr, ul) {
+        for (let i = 0; i < arr.length; i++) {
+
+            let li = document.createElement("li");
+
+            // add pet text to each li
+            li.innerText = arr[i];
+
+            // add each li to ul
+            ul.appendChild(li);
+        }
+    }
+
+    addToUl(pets, petList);
+
+</script>
+</body>
+</html>
