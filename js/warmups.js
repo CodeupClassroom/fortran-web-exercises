@@ -36,3 +36,4 @@ function removeAll(anArr, valueToRemove) {
 let bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "reference error", "type error"];
 
 console.log(removeAll(bugs, "ant"));
+
