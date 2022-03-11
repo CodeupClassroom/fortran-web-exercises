@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery Exercises</title>
+</head>
+<body>
+<h1 id="main-header">Cool header</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad atque dolorum, et in ipsam necessitatibus placeat quae quo sunt veritatis? Eligendi eos laboriosam quam quidem tempora! Debitis delectus maxime voluptates?</p>
+<ul>
+    <li>li 1</li>
+    <li>li 2</li>
+    <li>li 3</li>
+    <li>li 4</li>
+    <li>li 5</li>
+</ul>
+
+<h1>Another header</h1>
+
+<h2 id="sub-header">Sub header</h2>
+<p class="sub-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aspernatur assumenda cumque expedita explicabo nihil quae soluta! Ad aut commodi distinctio ducimus iure, nemo pariatur quam quidem sed veritatis! Et?</p>
+<p class="sub-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid blanditiis libero necessitatibus omnis. At dicta eligendi esse et fugiat fugit harum illo, inventore minima optio placeat provident quod, sunt veniam.</p>
+<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci architecto deleniti dolores fugiat iusto modi nam natus neque odit officiis provident, repudiandae sed sit tempora voluptatem. Dolores nulla repellat ut.</div>
+
+<div class="codeup">Codeup text</div>
+<div class="codeup">Codeup text</div>
+<div id="codeup">Codeup text</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        // alert("Dom is loaded!")
+
+        // let mainHeader = $('#main-header');
+        // alert(mainHeader.html());
+        //
+        // let subHeaderContents = $('#sub-header').html();
+        // alert(subHeaderContents);
+
+
+
+        // $('li').css('font-size', '20px');
+
+        console.log($('div').first().next().removeClass('codeup'));
+        $('.codeup').css('border', 'solid red 1px');
+
+        // $('h1').css('background-color', 'yellow')
+        // $('p').css('background-color', 'yellow')
+        // $('li').css('background-color', 'yellow')
+
+        // alert($('h1').html());
+
+        $('h1, p, li').css({'background-color': 'yellow', 'border':'solid red 1px'});
+
+
+
+    });
+
+
+
+
+
+
+</script>
+</body>
+</html>

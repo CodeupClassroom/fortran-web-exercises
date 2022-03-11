@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Konami</title>
+</head>
+<body>
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+
+
+    $(document).ready(function () {
+        let myKonami = [82, 89, 65];
+        let konamiPosition = 0;
+
+        $(document).keyup(function (e){
+            console.log(e.keyCode);
+            let expectedKey = myKonami[konamiPosition];
+            let keyPressed = e.keyCode;
+
+            if (expectedKey === keyPressed) {
+                konamiPosition++;
+                if (konamiPosition === myKonami.length) {
+                    alert('added 30 lives');
+                    konamiPosition = 0;
+                }
+            } else {
+                konamiPosition = 0;
+            }
+
+        })
+
+    })
+
+
+
+</script>
+</body>
+</html>
