@@ -1,5 +1,6 @@
-//VERSION USING VANILLA JS...
 (function () {
+
+    // TODO: Challenge yourself by replacing all of the Vanilla JS DOM code with jQuery!
 
 // get the thing
     let navContent = document.getElementById("navContent");
@@ -9,10 +10,6 @@
 
 // get the data and set it to the text of the new element
     nameElement.innerText = "Hi, " + getGitHubInfo().name + "!";
-    nameElement.style["color"] = 'white';
-    nameElement.classList.add('col-4');
-    nameElement.classList.add('align-self-end');
-    nameElement.classList.add('text-start');
 
 // TODO: Add nameElement to the DOM - specifically in between the GitHub Logo and the ul on the navbar
     navContent.insertBefore(nameElement, navContent.children[1]);
@@ -23,11 +20,48 @@
     details.innerText = getGitHubInfo().details;
 
     contentDiv.replaceChildren();
-    
+
     // Target a specific area on the DOM to insert our new paragraph
-    $('body > script').first().before(getNewParagraph())
-    
-    
+    $('body > script').first().before($(getNewParagraph()).addClass("test-class"));
+
+    // add multiple classes and css props to a given element
+    $("#navContent > p").addClass("col-4 align-self-end text-start").css({
+        "color": "white",
+        "border": "white 2px solid",
+        "border-radius": "30%"
+    });
+
+    // target ALL elements on the body
+    // $("*").css("border", "red 2px solid")
+    //
+
+    // add a hover event to each selected element through
+    // IMPLICIT iteration (loop without writing the loop)
+    // $("body > div > p").hover(function (){
+    //     $(this).css("background-color", "red")
+    // }, function(){
+    //     $(this).css("background-color", "white");
+    // })
+
+    // log out the text contents of EACH selected element
+    // $("body > div > p").each(function(){
+    //     console.log($(this).text())
+    // })
+
+    // $.each() lets you iterate over ANY collection
+    // var myArr = ["dog", "cat", "bird"];
+    //
+    // $.each(myArr, function(){
+    //     console.log($(this));
+    // });
+
+    // $().each() is meant for collections of jQuery objects, DOM Nodes, or HTML Elements
+    $("ul > li").each(function () {
+        if ($(this).first().text() === "Global Domination 😍") {
+            $(this).first().text("Global.. benevolence...")
+        }
+    })
+
     //return a template string representing new html element(s)
     //language=HTML
     function getNewParagraph() {
@@ -44,7 +78,6 @@
           </div>
         `
     }
-
 
 // PRETEND THIS IS AN API CALL ACROSS THE INTERWEBS
     function getGitHubInfo() {
