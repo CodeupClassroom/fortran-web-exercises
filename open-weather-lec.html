@@ -21,15 +21,10 @@
         let html = '';
         html+= '<ul>'
         for (let i = 0; i < 5; i++) {
-
             let dailyTemp = data.daily[i].temp.day
-
             html+= '<li>' + dailyTemp + '</li>';
-
         }
-
         html += '</ul>';
-
         $('#weather').html(html);
     });
 
