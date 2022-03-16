@@ -2,25 +2,190 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-        crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script defer src="js/jquery_faq.js"></script>
-    <link rel="stylesheet" href="css/jquery_faq.css">
     <title>jQuery FAQ</title>
+    <style>
+        .invisible {
+            visibility: hidden;
+        }
+
+        .highlighted {
+            background-color: yellow;
+        }
+
+        .bold-font {
+            font-weight: bold;
+        }
+
+        .photo {
+            height: 300px;
+            width: 250px;
+        }
+
+    </style>
   </head>
   <body>
-<dl>
-  <dt>Big Bend National Park</dt>
-  <dd>There is a place in Far West Texas where night skies are dark as coal and rivers carve temple-like canyons in ancient limestone. Here, at the end of the road, hundreds of bird species take refuge in a solitary mountain range surrounded by weather-beaten desert. Tenacious cactus bloom in sublime southwestern sun, and diversity of species is the best in the country. T</dd>
-  <dt>Padre Island National Seashore</dt>
-  <dd>Padre Island National Seashore separates the Gulf of Mexico from the Laguna Madre, one of a few hypersaline lagoons in the world.  The park protects 66 miles of coastline, dunes, prairies, and wind tidal flats teeming with life.  It is a safe nesting ground for the Kemp’s ridley sea turtle and a haven for over 380 bird species.  It also has a rich history, including the Spanish shipwrecks of 1554.</dd>
-  <dt>Davy Crockett National Forest</dt>
-  <dd>The Davy Crockett National Forest, named for the legendary pioneer, contains more than 160,000 acres of East Texas woodlands, streams, recreation areas, and wildlife habitat. Located in Houston and Trinity Counties, the forest is centrally located within the Neches and Trinity River basins. The Davy Crockett National Forest was proclaimed a National Forest by President Franklin Roosevelt on October 15, 1936.</dd>
-</dl>
+    <h2 id="registration-reminder">Please register to use the site.</h2>
+    <div id="newsletter-offer">
+      <span id="offer-close-button">X</span>
+      <h1>Would you like to sign up for our newsletter?</h1>
+    </div>
+    <button id="display-dd">Show definitions</button>
+
+    <dl>
+      <dt>Lorem Park</dt>
+      <dd class="invisible">Something something, blah blah.</dd>
+
+      <dt>Ipsum Lake</dt>
+      <dd class="invisible">.halb halb, gnihtemos gnihtemoS</dd>
+
+      <dt>Computer Park</dt>
+      <dd class="invisible">Look at all those Gateways...</dd>
+
+      <dt>Boiler Plate</dt>
+      <dd class="invisible">This might be a bit plain...</dd>
+
+      <dt>Schmear Geyser</dt>
+      <dd class="invisible">Get your bagels, my dudes.</dd>
+
+      <dt>Dab On 'Em Cliff</dt>
+      <dd class="invisible">Cam Newton's fault, probably.</dd>
+
+      <dt>Astrodome</dt>
+      <dd class="invisible">Houston baseball park.</dd>
+
+      <dt>Texas Cyclone</dt>
+      <dd class="invisible">Was a cool roller coaster.</dd>
+
+      <dt>My Aunt Pam's House</dt>
+      <dd class="invisible">They have a pomeranian.</dd>
+
+      <dt>Jellystone National Park</dt>
+      <dd class="invisible">Yogi lives there.</dd>
+
+    </dl>
+
+    <h3>Snæfellsjökull</h3>
+    <ul>
+      <li>Stratovolcano</li>
+      <li>Sometimes it may be seen from the city of Reykjavík over Faxa Bay, at a distance of 120 km.</li>
+      <li>The mountain is one of the most famous sites of Iceland, primarily due to the novel Journey to the Center of
+          the Earth (1864) by Jules Verne, in which the protagonists find the entrance to a passage leading to the
+          center of the earth on Snæfellsjökull.
+      </li>
+      <li>In August 2012 the summit was ice-free for the first time in recorded history.</li>
+    </ul>
+
+    <h3>Vatnajökull</h3>
+    <ul>
+      <li>Vatnajökull National Park is divided into four territories.</li>
+      <li>Vatnajökull is Europe's largest glacier outside the arctic, with a surface area of 8,100 km2.</li>
+      <li>It encompasses all of Vatnajökull glacier and extensive surrounding areas. These include the national parks
+          previously existing at Skaftafell in the southwest and Jökulsárgljúfur in the north.
+      </li>
+      <li>On 5 July 2019, Vatnajökull National Park was inscribed as a World Heritage Site.</li>
+    </ul>
+
+    <h3>Þingvellir</h3>
+    <ul>
+      <li>The National Gallery of Iceland owns more than 150 paintings by Ásgrímur Jónsson that have Þingvellir as their
+          subject.git
+      </li>
+      <li>The name Þingvellir is derived from the Old Norse Þingvǫllr, from þing (“thing, assembly”) and vǫllr
+          (“field”), meaning assembly fields.
+      </li>
+      <li>Þingvellir is associated with the Althing, the national parliament of Iceland, which was established at the
+          site in 930 AD.
+      </li>
+      <li>Þingvellir was designated as a World Heritage Site in 2004.</li>
+    </ul>
+
+    <button id="highlighter">Highlight the last li of each ul</button>
+
+    <div class="photos">
+      <div class="photo" id="first"></div>
+      <button id="button-1">Swap One</button>
+      <div class="photo" id="second"></div>
+      <button id="button-2">Swap Two</button>
+      <div class="photo" id="third"></div>
+      <button id="button-3">Swap Three</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('#display-dd').click(function () {
+                $('dd').toggleClass('invisible');
+            });
+
+            $('dt').click(function () {
+                $(this).toggleClass('highlighted');
+            });
+
+            $('#highlighter').click(function () {
+                $('ul').each(function () {
+                    $(this).children().last().toggleClass('highlighted');
+                });
+            });
+
+            $('h3').click(function () {
+                $(this).next().children().toggleClass('bold-font');
+            });
+
+            $('li').click(function () {
+                // li ----> ul ----> lis -----> first li
+                $(this).parent().children().first().css('color', 'blue');
+            });
+
+
+            // BONUS:
+
+            let imageUrl = "imgs/ducksInASink.jpeg";
+            let imageUrl2 = "imgs/oldLightPost.jpeg";
+            let imageUrl3 = "imgs/orange.jpeg";
+
+            $('#first').css("background-image", "url(" + imageUrl + ")");
+            $('#second').css("background-image", "url(" + imageUrl2 + ")");
+            $('#third').css("background-image", "url(" + imageUrl3 + ")");
+
+            function swapFirstTwo() {
+                let image2 = $('#second').css("background-image");
+                let image1 = $('#first').css("background-image");
+                $('#first').css('background-image', image2);
+                $('#second').css('background-image', image1);
+            }
+
+            function swapLastTwo() {
+                let image3 = $('#third').css("background-image");
+                let image2 = $('#second').css("background-image");
+                $('#third').css('background-image', image2);
+                $('#second').css('background-image', image3);
+            }
+
+            $('#button-1').click(swapFirstTwo);
+
+            $('#button-3').click(swapLastTwo);
+
+            $('#button-2').click(function () {
+                let image3 = $('#third').css("background-image");
+                let image1 = $('#first').css("background-image");
+                let arrayOfImages = [image3, image1];
+
+                let randomImage = arrayOfImages[Math.floor(Math.random() * arrayOfImages.length)]
+
+                if (randomImage === image1) {
+                    swapFirstTwo();
+                }
+
+                if (randomImage === image3) {
+                    swapLastTwo();
+                }
+
+            });
+
+
+        });
+    </script>
   </body>
 </html>
