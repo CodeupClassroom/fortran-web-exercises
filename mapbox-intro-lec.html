@@ -5,6 +5,7 @@
     <title>First Mapbox Map</title>
     <!-- Mapbox CSS -->
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
     <!-- Custom CSS -->
     <style>
         #map {
@@ -29,23 +30,30 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <!-- Mapbox JS -->
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
 <!-- Geocoder JS -->
 <script src="js/geocoder-utils.js"></script>
 <!-- Custom JS -->
 <script>
 
+    mapboxgl.accessToken = MAP_KEY;
     let startingLat = 29.4252;
     let startingLon = -98.4916;
 
     let map = initMap(startingLon, startingLat);
+    let geocoder = initGeoCoder();
     let marker = createMarker(startingLon, startingLat);
     let popup = createPopup(startingLon, startingLat);
+
+    // add geocoder search box to map
+    map.addControl(
+        geocoder
+    );
 
     marker.setPopup(popup);
 
     // function to create map
     function initMap(lon, lat) {
-        mapboxgl.accessToken = MAP_KEY;
         return new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/dark-v10',
@@ -66,24 +74,35 @@
     // map.setCenter([lat, lon])
 
     // function to create popup
-
     function createPopup(lon, lat) {
         return new mapboxgl.Popup()
             .setLngLat([lon, lat])
             .setHTML("<p>Codeup Rocks!</p>")
     }
 
+    // geocoder both manual and build in
 
-    // geocode stuff
+    // function to create geocoder
+    function initGeoCoder() {
+        return new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            mapboxgl: mapboxgl
+        })
+    }
 
+    // manual geocode with button
     $('#codeup').click(function () {
         geocode("600 Navarro St #350, San Antonio, TX 78205", MAP_KEY).then(function(result) {
             console.log(result);
             map.setCenter(result);
             map.setZoom(17);
         });
-    })
+    });
 
+    // geocode with built in geocoder just getting the center map will automatically fly to entered location
+    geocoder.on('result', function(e) {
+        console.log(e.result.center)
+    })
 
 
 
