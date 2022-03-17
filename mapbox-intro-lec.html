@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Mapbox Map</title>
+    <!-- Mapbox CSS -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Custom CSS -->
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>My First Mapbox Map!</h1>
+
+<!-- The HTML element that serves as the Mapbox container -->
+<div id='map'></div>
+
+<button id="codeup">Go to Codeup</button>
+
+<!-- Keys JS -->
+<script src="js/keys.js"></script>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<!-- Mapbox JS -->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<!-- Geocoder JS -->
+<script src="js/geocoder-utils.js"></script>
+<!-- Custom JS -->
+<script>
+
+    let startingLat = 29.4252;
+    let startingLon = -98.4916;
+
+    let map = initMap(startingLon, startingLat);
+    let marker = createMarker(startingLon, startingLat);
+    let popup = createPopup(startingLon, startingLat);
+
+    marker.setPopup(popup);
+
+    // function to create map
+    function initMap(lon, lat) {
+        mapboxgl.accessToken = MAP_KEY;
+        return new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/dark-v10',
+            zoom: 10,
+            center: [lon, lat]
+        });
+    }
+
+    // function to create marker
+    function createMarker(lon, lat) {
+        return new mapboxgl.Marker()
+            .setLngLat([lon, lat])
+            .addTo(map);
+    }
+
+    // can reset map properties programatically
+    // map.setZoom(5);
+    // map.setCenter([lat, lon])
+
+    // function to create popup
+
+    function createPopup(lon, lat) {
+        return new mapboxgl.Popup()
+            .setLngLat([lon, lat])
+            .setHTML("<p>Codeup Rocks!</p>")
+    }
+
+
+    // geocode stuff
+
+    $('#codeup').click(function () {
+        geocode("600 Navarro St #350, San Antonio, TX 78205", MAP_KEY).then(function(result) {
+            console.log(result);
+            map.setCenter(result);
+            map.setZoom(17);
+        });
+    })
+
+
+
+
+</script>
+</body>
+</html>
