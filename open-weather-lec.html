@@ -3,31 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 </head>
 <body>
+
+<input type="text" id="lat">
+<input type="text" id="lon">
+<input type="submit" id="submit">
+
 
 <div id="weather"></div>
 
 
 <script src="js/keys.js"></script>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
 
     // DO FETCH STUFF
-    fetch("https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&units=imperial&appid=" + OWM_KEY)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data.daily)
-        let html = '';
-        html+= '<ul>'
-        for (let i = 0; i < 5; i++) {
-            let dailyTemp = data.daily[i].temp.day
-            html+= '<li>' + dailyTemp + '</li>';
-        }
-        html += '</ul>';
-        $('#weather').html(html);
-    });
 
+    let startingLat = 33.44;
+    let startingLon = -94.04;
+
+    getWeatherData(startingLat, startingLon);
+
+    function getWeatherData(lat, lon) {
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${OWM_KEY}`)
+            .then(response => response.json())
+            .then(data => {
+                $('#weather').html(buildCardCont(data.daily));
+            });
+    }
+
+    function extractWeatherData(dayObj) {
+        return {
+            date: dayObj.dt,
+            dailyTemp: dayObj.temp.day,
+            humidity: dayObj.humidity,
+            pressure: dayObj.pressure
+        }
+    }
+
+    function buildCardCont(dayArr) {
+        let html = '<div class="row">'
+        for (let i = 0; i < 5; i++) {
+            html += buildWeatherCard(dayArr[i]);
+        }
+        html += '</div>';
+        return html;
+    }
+
+    function buildWeatherCard(day) {
+        let html = '';
+        let weather = extractWeatherData(day);
+        let formattedDate = formatDate(weather.date);
+        // language=HTML
+        html += `
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    ${formattedDate}
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Temp: ${weather.dailyTemp}</li>
+                    <li class="list-group-item">Hum: ${weather.humidity}</li>
+                    <li class="list-group-item">Pressure: ${weather.pressure}</li>
+                </ul>
+            </div>`
+        return html;
+    }
+
+    function formatDate(unixDate) {
+        return new Date(unixDate * 1000).toISOString().split('T')[0];
+    }
+
+
+    $('#submit').click(function (e) {
+        e.preventDefault();
+        let userLat = $('#lat').val();
+        let userLon = $('#lon').val();
+        getWeatherData(userLat, userLon);
+    })
 
 
 </script>
