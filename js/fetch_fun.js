@@ -7,20 +7,16 @@ const options = {method: 'GET', headers: {Accept: 'application/json'}};
 // fetch is a method which returns a Promise object
 // When a Promise object is returned, the program moves on to the next line of code after the last line of the fetch immediately
 // In other words, it does not wait on the response to come back before moving on
-fetch(`https://api.openweathermap.org/data/2.5/weather?lat=32.7&lon=-96.7&appid=50bc836c4df7e3d64c34550ba19e69d6
-`, options)
+fetch('https://api.openweathermap.org/data/2.5/forecast?lat=35&lon=139&appid=f0a8643e46567819cdf5e688ea09d87b', options)
     .then(response => response.json())// parse response to JSON
     .then(response => getSanitizedResponse(response)) // make new object(s) with only the needed data
-    .then(data => renderDailyForecast(data)) // use new objects to render DOM nodes and append to DOM
+    // .then(data => renderDailyForecast(data)) // use new objects to render DOM nodes and append to DOM
     .catch(err => console.error(err)); // catch HTTP-specific errors (like 429 or 500, etc)
 
 // Here, we separate the concern of retrieving and parsing our data (above in the fetch)
 // from sanitizing and formatting our data to be used in the application (below)
 function getSanitizedResponse(dataBody) {
-    return {
-        feelsLike: dataBody.main.feels_like,
-        humidity: dataBody.main.humidity
-    };
+    console.log(dataBody);
 }
 
 
