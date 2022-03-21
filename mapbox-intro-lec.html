@@ -43,6 +43,7 @@
     let map = initMap(startingLon, startingLat);
     let geocoder = initGeoCoder();
     let marker = createMarker(startingLon, startingLat);
+    marker.on('dragend', onDragEnd)
     let popup = createPopup(startingLon, startingLat);
 
     // add geocoder search box to map
@@ -64,7 +65,7 @@
 
     // function to create marker
     function createMarker(lon, lat) {
-        return new mapboxgl.Marker()
+        return new mapboxgl.Marker({draggable:true})
             .setLngLat([lon, lat])
             .addTo(map);
     }
@@ -86,7 +87,8 @@
     function initGeoCoder() {
         return new MapboxGeocoder({
             accessToken: mapboxgl.accessToken,
-            mapboxgl: mapboxgl
+            mapboxgl: mapboxgl,
+            marker: false
         })
     }
 
@@ -102,8 +104,17 @@
     // geocode with built in geocoder just getting the center map will automatically fly to entered location
     geocoder.on('result', function(e) {
         console.log(e.result.center)
-    })
+        marker = new mapboxgl.Marker({draggable: true})
+            .setLngLat(e.result.center)
+            .addTo(map);
+        marker.on('dragend', onDragEnd)
+    });
 
+
+
+    function onDragEnd() {
+        console.log(marker.getLngLat());
+    }
 
 
 </script>
