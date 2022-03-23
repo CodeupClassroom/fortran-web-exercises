@@ -1,4 +1,4 @@
-
+import mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
 /**
  * Define all the file-scoped variables we'll need in various parts of this js file
  * **/
